@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import FirebaseContext from '../context/firebase';
 import { useHistory, Link } from 'react-router-dom'
 import * as ROUTES from '../constants/routes'
+import { doesUsernameExist } from '../services/firebase';
 
 const signup = () => {
     const history = useHistory();
@@ -17,10 +18,38 @@ const signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        try{
-            
-        } catch (error){
-            
+        const usernameExists = await doesUsernameExist(username);
+        if(!usernameExists.length){
+            try{
+                const createdUserResult = await firebase
+                .auth()
+                .createUserWithEmailAndPassword(emailAddress , password);
+                // authentication
+                 // emailAddress and password and username (displayName)
+                 await createdUserResult.user.updateProfile({
+                     displayName: username
+                 });
+
+                 // firebase user collection ( create a document)
+                 await firebase.firestore().collection('users').add({
+                     userId: createdUserResult.user.uid,
+                     username: username.toLowerCase(),
+                     emailAddress: emailAddress.toLowerCase(),
+                     following: [],
+                     dateCreated: Date.now()
+                 });
+
+                 history.push(ROUTES.DASHBOARD);
+            } 
+            catch (error){
+                setFullName('')
+                setEmailAddress('')
+                setUsername('')
+                setPassword('')
+                setError(error.message)
+            }
+        } else {
+            setError('That username is already taken, please try another.')
         }
     }
 
@@ -88,7 +117,7 @@ const signup = () => {
                 </div>
                 <div className="flex justify-center rounded items-center flex-col w-full bg-white p-4 border border-gray-primary text-black">
                     <p className="text-sm">Have an account? {``}
-                    <Link to={ROUTES.SIGN_UP} className="font-bold text-blue-medium">
+                    <Link to={ROUTES.LOGIN} className="font-bold text-blue-medium">
                         Login
                     </Link>
                     </p>
