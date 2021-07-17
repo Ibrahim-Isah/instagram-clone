@@ -41,3 +41,42 @@ export async function getSuggestedProfiles(userId, following) {
         profile.userId !== userId && !following.includes(profile.userId)
     );
 }
+
+//update user following
+
+export async function updateLoggedInUserFollowing(
+  loggedInUserDocId, //currently logged in user document id isah
+  profileId, // the user that isah request to follow
+  isFollowingProfile // true or false (am i currently following this person)
+) {
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(loggedInUserDocId)
+    .update({
+      following: isFollowingProfile
+        ? FieldValue.arrayRemove(profileId)
+        : FieldValue.arrayUnion(profileId),
+    });
+}
+
+// update follower follow
+export async function updateFollowedUserFollowers(
+  profileDocId, //currently logged in user document id isah
+  loggedInUserDocId, // the user that isah request to follow
+  isFollowingProfile // true or false (am i currently following this person)
+) {
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(profileDocId)
+    .update({
+      followers: isFollowingProfile
+        ? FieldValue.arrayRemove(
+            loggedInUserDocId // the user that isah request to follow
+          )
+        : FieldValue.arrayUnion(
+            loggedInUserDocId // the user that isah request to follow
+          ),
+    });
+}
