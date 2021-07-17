@@ -35,6 +35,7 @@ const signup = () => {
                      userId: createdUserResult.user.uid,
                      username: username.toLowerCase(),
                      emailAddress: emailAddress.toLowerCase(),
+                     fullName: fullName,
                      following: [],
                      dateCreated: Date.now()
                  });

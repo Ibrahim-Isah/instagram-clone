@@ -1,10 +1,13 @@
-import useUser from "../hooks/use-user"
+import useUser from "../../hooks/use-user"
+import User from './user'
+import Suggestions from './suggestions'
 
 const Sidebar = () => {
-    const {user: { fullName, username, userId}} = useUser()
+    const {user: { fullName, username, userId , following}} = useUser()
     return (
-        <div>
-            Side bar
+        <div className="">
+          <User username={username} fullName={fullName} />
+          <Suggestions userId={userId} following={following} />  
         </div>
     )
 }

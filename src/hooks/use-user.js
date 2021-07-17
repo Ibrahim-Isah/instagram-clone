@@ -2,8 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import UserContext from '../context/user';
 import { getUserByUserId } from '../services/firebase';
 
-import React from 'react';
-
 const useUser = () => {
   const [activeUser, setActiveUser] = useState({});
   const { user } = useContext(UserContext);
@@ -19,7 +17,7 @@ const useUser = () => {
     }
   }, [user]);
 
-  return <div></div>;
+  return { user: activeUser };
 };
 
 export default useUser;
