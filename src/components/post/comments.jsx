@@ -30,7 +30,7 @@ const Comments = ({
                 ))}
                 <p className="text-gray-base uppercase text-xs mt-2">
                     {formatDistance(posted, new Date())} ago
-                </p>
+                </p> 
             </div>
             <AddComment 
                 docId={docId}
