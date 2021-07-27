@@ -136,3 +136,47 @@ export async function getPhotos(userId, following) {
 
   return photosWithUserDetails;
 }
+
+export async function isUserFollowingProfile(
+  loggedInUserUsername,
+  profileUserId
+) {
+  const result = await firebase
+    .firestore()
+    .collection('users')
+    .where('username', '==', loggedInUserUsername) //active logged in user
+    .where('following', 'array-contains', profileUserId)
+    .get();
+
+  const [response = {}] = result.docs.map((item) => ({
+    ...item.data(),
+    docId: item.id,
+  }));
+
+  return response.userId;
+}
+
+export async function toggleFollow(
+  isFollowingProfile,
+  activeUserDocId,
+  profileDocId,
+  profileUserId,
+  followingUserId
+) {
+  //1st param: isah doc id
+  //2nd param: maimuna user id
+  //3rd param: is the user following this profile?
+  await updateLoggedInUserFollowing(
+    activeUserDocId,
+    profileUserId,
+    isFollowingProfile
+  );
+  //1st param: isah user id
+  //2nd param: maimuna doc id
+  //3rd param: is the user following this profile?
+  await updateFollowedUserFollowers(
+    profileDocId,
+    followingUserId,
+    isFollowingProfile
+  );
+}

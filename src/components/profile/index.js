@@ -22,7 +22,6 @@ const Profile = ({ user }) => {
   useEffect(() => {
     async function getProfileInfoAndPhotos() {
       const photos = await getUserPhotosByUsername(user.username);
-      console.log('photos', photos);
       dispatch({
         profile: user,
         photosCollection: photos,
@@ -34,9 +33,14 @@ const Profile = ({ user }) => {
 
   return (
     <>
-      <Header />
+      <Header
+        photosCount={photosCollection ? photosCollection.length : 0}
+        profile={profile}
+        followerCount={followerCount}
+        setFollowerCount={dispatch}
+      />
       <Photos photos={photosCollection} />
-      <p>Hello {user.username}</p>
+      <p>{user.username}</p>
     </>
   );
 };
@@ -50,6 +54,7 @@ Profile.propTypes = {
     followers: PropTypes.array.isRequired,
     following: PropTypes.array.isRequired,
     fullName: PropTypes.string.isRequired,
+    username: PropTypes.isRequired,
     userId: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
   }).isRequired,

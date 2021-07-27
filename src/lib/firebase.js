@@ -20,7 +20,7 @@ const firebase = Firebase.initializeApp(config);
 
 const { FieldValue } = Firebase.firestore;
 
-console.log('firebase', firebase);
+// console.log('firebase', firebase);
 
 //here i want to i want to call the seed file once
 
