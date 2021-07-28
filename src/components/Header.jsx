@@ -47,10 +47,14 @@ const Header = () => {
                                 <button 
                                 type="button"
                                 title="Sign Out"
-                                onClick={() => firebase.auth().signOut()}
+                                onClick={() => {
+                                    firebase.auth().signOut()
+                                    history.push(ROUTES.LOGIN)
+                                }}
                                 onKeyDown={event => {
                                     if(event.key === 'Enter'){
-                                        firebase.auth().signOut();
+                                        firebase.auth().signOut()
+                                        history.push(ROUTES.LOGIN)
                                     }
                                 }}
                                 >
