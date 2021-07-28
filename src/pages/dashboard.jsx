@@ -27,5 +27,5 @@ const Dashboard = ({user: loggedInUser}) => {
 export default Dashboard
 
 Dashboard.propTypes = {
-
+    user: PropTypes.object.isRequired
 }
