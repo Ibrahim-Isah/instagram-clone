@@ -8,15 +8,16 @@ const usePhotos = (user) => {
   useEffect(() => {
     async function getTimeLinePhotos() {
       //exapmple: [ 2,1,5 ] -> 2 = mohammed
-      const [{ following }] = await getUserByUserId(userId);
-      let followedUserPhotos = [];
+      if (user?.following.length > 0) {
+        const followedUserPhotos = await getPhotos(user.userId, user.following);
 
-      followedUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
-      setPhotos(followedUserPhotos);
+        followedUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
+        setPhotos(followedUserPhotos);
+      }
     }
 
     getTimeLinePhotos();
-  }, [userId]);
+  }, [user.userId]);
 
   return { photos };
 };
