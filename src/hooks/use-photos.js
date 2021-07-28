@@ -8,7 +8,7 @@ const usePhotos = (user) => {
   useEffect(() => {
     async function getTimeLinePhotos() {
       //exapmple: [ 2,1,5 ] -> 2 = mohammed
-      if (user?.following.length > 0) {
+      if (user?.following?.length > 0) {
         const followedUserPhotos = await getPhotos(user.userId, user.following);
 
         followedUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
