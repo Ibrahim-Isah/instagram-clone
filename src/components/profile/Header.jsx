@@ -9,7 +9,7 @@ const Header = ({
     photosCount , 
     followerCount , 
     setFollowerCount,
-    profile: {docId: profileDocId, userId: profileUserId, fullName, username: profileUsername , followers = [], following=[]}
+    profile: {docId: profileDocId, userId: profileUserId, fullName, username: profileUsername , followers, following}
     }) => {
     const {user: loggedInUser} = useContext(UserContext)
     const { user } = useUser(loggedInUser?.uid);
