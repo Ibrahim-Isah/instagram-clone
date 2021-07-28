@@ -2,9 +2,10 @@ import { useEffect } from "react"
 import Header from "../components/Header"
 import Sidebar from "../components/sidebar"
 import Timeline from "../components/Timeline"
+import useUser from "../hooks/use-user"
+import LoggedInUserContext from "../context/logged-in-user"
 
-
-const Dashboard = () => {
+const Dashboard = ({user: loggedInUser}) => {
     useEffect(() => {
         document.title = 'Instagram'
         
