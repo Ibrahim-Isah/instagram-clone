@@ -14,10 +14,8 @@ const Timeline = () => {
                 <>
                     <Skeleton count={4} width={640} height={500} className="mb-5"/>
                 </>
-            ):photos?.length > 0 ? (
-                photos.map((content) => <Post key={content.docId} content={content} />)
             ):(
-                <p className="text-center text-2xl">Follow people to see photos</p>
+                photos.map((content) => <Post key={content.docId} content={content} />)
             )}
         </div>
     )
