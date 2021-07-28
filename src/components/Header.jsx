@@ -23,7 +23,7 @@ const Header = () => {
                         </h1>
                     </div>
                     <div className="text-gray-700 text-center flex items-center align-center">
-                        {user ? (
+                        {user.username ? (
                             <>
                                 <Link to={ROUTES.DASHBOARD} aria-label="Dashboard">
                                     <svg
@@ -71,7 +71,7 @@ const Header = () => {
                                     <Link to={`/p/${user?.username}`}>
                                         <img 
                                         src={`/images/avatars/${user.username}.jpg`}
-                                        alt={`${user.username} profile picture`} 
+                                        alt={`${user?.username} profile picture`} 
                                         className="rounded-full h-8 w-8 flex" 
                                         />
                                     </Link>
