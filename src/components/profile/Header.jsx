@@ -42,11 +42,17 @@ const Header = ({
     return (
         <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
             <div className="container flex justify-center items-center">
-               {user.username && (
+               {profileUsername ? (
                    <img 
                     className="rounded-full h-40 w-40 flex"
                     src={`/images/avatars/${profileUsername}.jpg`}
                     alt={`${user.username} profile picture`} 
+                />
+               ) : (
+                   <img 
+                    className="rounded-full h-40 w-40 flex"
+                    src={`/images/avatars/isah.jpg`}
+                    alt={`Isah Ibrahim profile picture`} 
                 />
                )}
             </div>
