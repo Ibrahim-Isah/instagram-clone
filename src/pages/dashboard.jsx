@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import Header from "../components/Header"
 import Sidebar from "../components/sidebar"
 import Timeline from "../components/Timeline"
@@ -6,6 +6,8 @@ import useUser from "../hooks/use-user"
 import LoggedInUserContext from "../context/logged-in-user"
 
 const Dashboard = ({user: loggedInUser}) => {
+    const { user } = useUser(loggedInUser.uid)
+
     useEffect(() => {
         document.title = 'Instagram'
         
