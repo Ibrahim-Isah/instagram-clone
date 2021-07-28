@@ -1,10 +1,13 @@
 import usePhotos from '../hooks/use-photos';
 import Skeleton from 'react-loading-skeleton';
 import Post from './post';
+import { useContext } from 'react';
+import LoggedInUserContext from '../context/logged-in-user';
 
 const Timeline = () => {
     //we need to get the logged in user's photos
-    const { photos } = usePhotos();
+    const { user } = useContext(LoggedInUserContext)
+    const { photos } = usePhotos(user);
     // on loading the photos, we need to use react skeletom
     // if we have photos, render them (create a post component)
     // if the user has no photos, tell them to create some photos
