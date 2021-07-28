@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import Sidebar from "../components/sidebar"
 import Timeline from "../components/Timeline"
 
+
 const Dashboard = () => {
     useEffect(() => {
         document.title = 'Instagram'

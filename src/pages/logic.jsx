@@ -66,7 +66,7 @@ const logic = () => {
                         type="submit"
                         className={`bg-blue-medium text-white w-full rounded h-8 font-bold ${isInvalid && 'opacity-50'}`}
                         disabled={isInvalid}>
-                            Log In
+                            Login
                         </button>
 
                     </form>
