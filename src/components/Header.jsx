@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import FirebaseContext from "../context/firebase"
 import UserContext from "../context/user"
 import * as ROUTES from '../constants/routes'
@@ -11,6 +11,8 @@ const Header = () => {
     const {user: loggedInUser} = useContext(UserContext)
     const { firebase } = useContext(FirebaseContext)
     const { user } = useUser(loggedInUser?.uid)
+    const history = useHistory()
+
     return (
         <header className="h-16 bg-white border-b border-gray-primary mb-8">
             <div className="container mx-auto max-w-screen-lg h-full">
