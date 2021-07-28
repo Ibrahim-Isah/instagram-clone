@@ -68,10 +68,10 @@ const Header = () => {
                                 </svg>
                                 </button>
                                 <div className="flex items-center cursor-pointer">
-                                    <Link to={`/p/${user.displayName}`}>
+                                    <Link to={`/p/${user?.username}`}>
                                         <img 
-                                        src={`/images/avatars/${user.displayName}.jpg`}
-                                        alt={`${user.displayName} profile picture`} 
+                                        src={`/images/avatars/${user.username}.jpg`}
+                                        alt={`${user.username} profile picture`} 
                                         className="rounded-full h-8 w-8 flex" 
                                         />
                                     </Link>
