@@ -4,6 +4,7 @@ import Sidebar from "../components/sidebar"
 import Timeline from "../components/Timeline"
 import useUser from "../hooks/use-user"
 import LoggedInUserContext from "../context/logged-in-user"
+import PropTypes from 'prop-types'
 
 const Dashboard = ({user: loggedInUser}) => {
     const { user } = useUser(loggedInUser.uid)
@@ -24,3 +25,7 @@ const Dashboard = ({user: loggedInUser}) => {
 }
 
 export default Dashboard
+
+Dashboard.propTypes = {
+
+}
