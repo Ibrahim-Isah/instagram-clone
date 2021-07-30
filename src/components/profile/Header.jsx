@@ -44,7 +44,7 @@ const Header = ({
             <div className="container flex justify-center items-center">
                {profileUsername ? (
                    <img 
-                    className="rounded-full h-40 w-40 flex"
+                    className="rounded-full h-30 w-30 md:h-40 md:w-40 flex"
                     src={`/images/avatars/${profileUsername}.jpg`}
                     alt={`${user.username} profile picture`} 
                 />
@@ -58,10 +58,10 @@ const Header = ({
             </div>
             <div className="flex items-center justify-center flex-col col-span-2">
                 <div className="container flex items-center">
-                    <p className="text-2xl mr-4">{profileUsername}</p>
+                    <p className="text-xl md:text-2xl mr-4">{profileUsername}</p>
                     {activeBtnFollow && (
                         <button
-                            className="bg-blue-medium font-bold text-sm rounded text-white w-20 h-8"
+                            className="bg-blue-medium font-bold text-sm rounded text-white w-20 h-7 md:h-8"
                             type="button"
                             onClick={handleToggleFollow}
                             onKeyDown={(event) => {
@@ -80,19 +80,19 @@ const Header = ({
                         <Skeleton count={1} width={677} height={24} />
                     ) : (
                         <>
-                            <p className="mr-10">
+                            <p className="mr-5 md:mr-10">
                                 <span className="font-bold">
                                     {photosCount}
                                 </span> Photos
                             </p>
-                            <p className="mr-10">
+                            <p className="mr-5 md:mr-10">
                                 <span className="font-bold">
                                     {followerCount}
                                 </span> 
                                 {` `}
                                 {followerCount === 1 ? `follower` : `followers`}
                             </p>
-                            <p className="mr-10">
+                            <p className="mr-5 md:mr-10">
                                 <span className="font-bold">
                                     {following.length}
                                 </span> {` `}
