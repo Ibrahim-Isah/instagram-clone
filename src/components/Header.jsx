@@ -78,7 +78,7 @@ const Header = () => {
                                         <img 
                                         src={`/images/avatars/${user.username}.jpg`}
                                         alt={`${user?.username} profile picture`} 
-                                        className="rounded-full h-5 w-5 md:h-8 md:w-8 flex" 
+                                        className="rounded-full w-8 md:h-8 md:w-8 flex" 
                                         />
                                     </Link>
                                 </div>
