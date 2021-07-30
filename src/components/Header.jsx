@@ -89,7 +89,7 @@ const Header = () => {
                                     <button type="button" className="bg-blue-medium font-bold text-sm rounded text-white w-20 h-8">Log In</button>
                                 </Link>
                                 <Link to={ROUTES.SIGN_UP} aria-label="Sign up">
-                                    <button type="button" className="text-blue-medium font-bold text-sm rounded bg-white w-20 h-8">Sign Un</button>
+                                    <button type="button" className="text-blue-medium font-bold text-sm rounded bg-white w-20 h-8">Sign Up</button>
                                 </Link>
                             </>
                         )}

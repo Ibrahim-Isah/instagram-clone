@@ -15,9 +15,9 @@ const Dashboard = ({user: loggedInUser}) => {
     }, [])
     return (
         <LoggedInUserContext.Provider value={{ user }}>
-            <div className="bg-gray-background">
+            <div className="bg-gray-background md:mx-auto mx-5">
                 <Header />
-                <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
+                <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4 justify-between mx-auto max-w-screen-lg">
                     <Timeline />
                     <Sidebar />
                 </div>

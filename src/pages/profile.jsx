@@ -15,16 +15,18 @@ const Profile = () => {
         async function checkUserExists(){
             const [user] = await getUserByUsername(username);
             if(user?.userId){
-                setUser(user[0]);
+                setUser(user);
             } else {
                 history.push(ROUTES.NOT_FOUND)
             }
         }
         
-        checkUserExists();
+        console.log(checkUserExists());
     }, [username, history])
+
+    console.log('user', user)
     return user?.username ? (
-        <div className="bg-gray-background">
+        <div className="bg-gray-background md:mx-auto mx-5">
             <Header />
             <div className="mx-auto max-w-screen-lg">
                 <UserProfile user={user} />

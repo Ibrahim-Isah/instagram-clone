@@ -22,7 +22,7 @@ const SuggestedProfile = ({
         await updateFollowedUserFollowers(profileDocId, userId, false);
     }
     return !followed ? (
-        <div className="flex flex-row items-center align-items justify-between">
+        <div className="flex flex-row items-center align-items justify-between mb-6 md:mb-auto">
             <div className="flex items-center justify-between">
                 <img src={`/images/avatars/${username}.jpg`} alt={`profile picture of ${username}`} className="rounded-full w-8 flex mr-3" />
                 <Link to={`/p/${username}`}>
