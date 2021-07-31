@@ -24,7 +24,7 @@ const SuggestedProfile = ({
     return !followed ? (
         <div className="flex flex-row items-center align-items justify-between mb-6 md:mb-auto">
             <div className="flex items-center justify-between">
-                <img src={`/images/avatars/${username}.jpg`} alt={`profile picture of ${username}`} className="rounded-full w-8 flex mr-3" />
+                <img src={`/images/avatars/${username !== 'halima' || 'maimuna' || 'mohammed' || 'isah' ? 'kawai' : username}.jpg`} alt={`profile picture of ${username}`} className="rounded-full w-8 flex mr-3" />
                 <Link to={`/p/${username}`}>
                     <p className="font-bold text-sm">{username}</p>
                 </Link>

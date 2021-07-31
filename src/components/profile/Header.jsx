@@ -45,7 +45,7 @@ const Header = ({
                {profileUsername ? (
                    <img 
                     className="rounded-full h-30 w-30 md:h-40 md:w-40 flex"
-                    src={`/images/avatars/${profileUsername}.jpg`}
+                    src={`/images/avatars/${profileUsername !== 'halima' || 'maimuna' || 'mohammed' || 'isah' ? 'kawai' : profileUsername}.jpg`}
                     alt={`${user.username} profile picture`} 
                 />
                ) : (
