@@ -75,7 +75,8 @@ const signup = () => {
                         <img src="/images/logo.png" alt="Instagram" className="mt-2 w-6/12 mb-4" />
                     </h1>
                     {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
-
+                    <p className="text-red-primary font-bold text-sm mb-2">Disclamer: This is not the original Instagram, Do not use your credentials</p>
+                    
                     <form onSubmit={handleSignup} method="POST">
                         <input 
                         type="text"
